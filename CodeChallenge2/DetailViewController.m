@@ -7,13 +7,17 @@
 //
 
 #import "DetailViewController.h"
+#import "WebViewController.h"
+#import "City.h"
 
-@interface DetailViewController () <UITextFieldDelegate>
+@interface DetailViewController () <UITextFieldDelegate,CityDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet UITextField *cityName;
 @property (weak, nonatomic) IBOutlet UITextField *cityState;
 @property (weak, nonatomic) IBOutlet UILabel *wikiLabel;
+@property NSString *cityURL;
 @property (nonatomic) CGPoint touchPoint;
+@property City *city;
 @end
 
 @implementation DetailViewController
@@ -24,6 +28,14 @@
     self.detailImageView.image = self.cityDetail.image;
     self.cityName.text = self.cityDetail.name;
     self.cityState.text = self.cityDetail.state;
+    self.cityURL = self.cityDetail.url;
+    self.city = [[City alloc]init];
+    self.city.delegate = self;
+}
+
+-(void)theCityURL:(NSString *)url
+{
+    [self performSegueWithIdentifier:@"citySegue" sender:self];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -39,7 +51,6 @@
     self.cityDetail.state = self.cityState.text;
 }
 
-
 - (IBAction)wikiOnLabelTapped:(UITapGestureRecognizer *)gesture
 {
     self.touchPoint = [gesture locationInView:self.view];
@@ -49,5 +60,15 @@
     }
 }
 
+- (IBAction)cityWikiOnButtonPressed:(UIButton *)sender
+{
+    [self.city wikiURL];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    WebViewController *web = segue.destinationViewController;
+    web.url = self.cityURL;
+}
 
 @end

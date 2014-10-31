@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://en.wikipedia.org/wiki/"];
+    NSURL *url = [NSURL URLWithString:self.url];
     NSURLRequest *urlrequest = [NSURLRequest requestWithURL:url];
     [self.wikiWebView  loadRequest:urlrequest];
 }

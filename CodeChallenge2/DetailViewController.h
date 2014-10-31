@@ -11,5 +11,6 @@
 
 @interface DetailViewController : UIViewController
 @property City *cityDetail;
+@property NSString *url;
 
 @end

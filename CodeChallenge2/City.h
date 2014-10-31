@@ -11,6 +11,7 @@
 
 @protocol CityDelegate <NSObject>
 
+-(void)theCityURL:(NSString *)url;
 
 @end
 
@@ -18,9 +19,12 @@
 @property NSString *name;
 @property NSString *state;
 @property UIImage *image;
+@property NSString *url;
+
 @property (weak, nonatomic) id <CityDelegate> delegate;
 
-- (NSURL *)wikiURL;
--(instancetype)initWithName:(NSString *)name withState:(NSString *)state withImage:(UIImage *)image;
+- (void)wikiURL;
+
+- (instancetype)initWithName:(NSString *)name withState:(NSString *)state withImage:(UIImage *)image withURL:(NSString *)url;
 
 @end

@@ -10,33 +10,18 @@
 
 @implementation City
 
-- (NSURL *)wikiURL
+- (void)wikiURL
 {
-    if (self.name == @"Los Angeles")
-    {
-        return @"http://en.wikipedia.org/wiki/Los_Angeles";
-    }
-    else if (self.name == @"San Francisco")
-    {
-        return @"http://en.wikipedia.org/wiki/San_Francisco";
-    }
-    else if (self.name == @"Seattle")
-    {
-        return @"http://en.wikipedia.org/wiki/seattle";
-    }
-    else if (self.name == @"Chicago")
-    {
-        return @"http://en.wikipedia.org/wiki/chicago";
-    }
-    return @"http://en.wikipedia.org/wiki/";
+    [self.delegate theCityURL:self.url];
 }
 
--(instancetype)initWithName:(NSString *)name withState:(NSString *)state withImage:(UIImage *)image;
+- (instancetype)initWithName:(NSString *)name withState:(NSString *)state withImage:(UIImage *)image withURL:(NSString *)url
 {
     self = [super init];
     self.name = name;
     self.state = state;
     self.image = image;
+    self.url = url;
     return self;
 }
 

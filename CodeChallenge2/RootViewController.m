@@ -7,10 +7,10 @@
 //
 
 #import "RootViewController.h"
-#import "City.h"
 #import "DetailViewController.h"
+#import "City.h"
 
-@interface RootViewController () <UITableViewDataSource, UITableViewDelegate, CityDelegate>
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *cityTableView;
 @property NSMutableArray *cities;
 @property City *city;
@@ -21,21 +21,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.city = [[City alloc]init];
-    self.city.delegate = self;
 
     City *losAngeles = [[City alloc]initWithName:@"Los Angeles"
                                        withState:@"California"
-                                       withImage:[UIImage imageNamed:@"losAngeles"]];
+                                       withImage:[UIImage imageNamed:@"losAngeles"]
+                                         withURL:@"http://en.wikipedia.org/wiki/Los_Angeles"];
     City *sanFrancisco = [[City alloc]initWithName:@"San Francisco"
                                          withState:@"California"
-                                         withImage:[UIImage imageNamed:@"sanFrancisco"]];
+                                         withImage:[UIImage imageNamed:@"sanFrancisco"]
+                                           withURL:@"http://en.wikipedia.org/wiki/San_Francisco"];
     City *seattle = [[City alloc]initWithName:@"Seattle"
                                     withState:@"Washington"
-                                    withImage:[UIImage imageNamed:@"seattle"]];
+                                    withImage:[UIImage imageNamed:@"seattle"]
+                                      withURL:@"http://en.wikipedia.org/wiki/Seattle"];
     City *chicago = [[City alloc]initWithName:@"Chicago"
                                     withState:@"Illinois"
-                                    withImage:[UIImage imageNamed:@"chicago"]];
+                                    withImage:[UIImage imageNamed:@"chicago"]
+                                      withURL:@"http://en.wikipedia.org/wiki/Chicago"];
 
     self.cities = [@[losAngeles, sanFrancisco, seattle, chicago] mutableCopy];
 }
@@ -80,8 +82,6 @@
     NSInteger rowNumber = [self.cityTableView indexPathForSelectedRow].row;
     City *cityDetail = [self.cities objectAtIndex:rowNumber];
     detail.cityDetail = cityDetail;
-    [self wikiURL];
-    NSLog(@"%@", [self wikiURL]);
 }
 
 - (IBAction)unwindAndBook:(UIStoryboardSegue *)segue

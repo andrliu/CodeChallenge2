@@ -168,12 +168,12 @@
                                     <segue destination="uEv-To-Kc6" kind="unwind" unwindAction="unwindAndBook:" id="j0M-9a-szO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wikipedia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-6Z-C3q">
-                                <rect key="frame" x="122.5" y="438" width="75" height="30"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wikipedia City Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-6Z-C3q">
+                                <rect key="frame" x="60" y="438" width="200" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="Rg4-rC-Xgl"/>
+                                    <constraint firstAttribute="width" constant="200" id="Rg4-rC-Xgl"/>
                                     <constraint firstAttribute="height" constant="30" id="gDJ-mS-R7L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -195,9 +195,24 @@
                                     <outlet property="delegate" destination="r2j-cX-smq" id="D1e-Wd-uNh"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qD-Fi-xNg">
+                                <rect key="frame" x="60" y="488" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="G4R-EK-Yyv"/>
+                                    <constraint firstAttribute="height" constant="30" id="QmQ-Je-wbM"/>
+                                </constraints>
+                                <state key="normal" title="Wikipedia City Page">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cityWikiOnButtonPressed:" destination="r2j-cX-smq" eventType="touchUpInside" id="6cU-Ui-Xds"/>
+                                    <segue destination="xZw-vi-LW7" kind="modal" identifier="citySegue" id="vxd-tb-xNz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aDi-IZ-L4Q" firstAttribute="top" secondItem="6qD-Fi-xNg" secondAttribute="bottom" constant="50" id="4ON-KC-DlU"/>
                             <constraint firstItem="vcS-OD-1bG" firstAttribute="leading" secondItem="x5v-7f-bFM" secondAttribute="leadingMargin" constant="-16" id="83W-hI-aij"/>
                             <constraint firstItem="dB5-kd-MLe" firstAttribute="leading" secondItem="x5v-7f-bFM" secondAttribute="leadingMargin" constant="25" id="CrV-W0-9aF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F5e-Gq-ICw" secondAttribute="trailing" constant="25" id="GQ4-I8-QJk"/>
@@ -207,6 +222,7 @@
                             <constraint firstItem="F5e-Gq-ICw" firstAttribute="top" secondItem="Ea2-X5-ED5" secondAttribute="bottom" constant="40" id="SEa-dQ-bQW"/>
                             <constraint firstItem="bGM-Nb-mQt" firstAttribute="top" secondItem="Ea2-X5-ED5" secondAttribute="bottom" constant="80" id="SHL-mR-ufd"/>
                             <constraint firstItem="bGM-Nb-mQt" firstAttribute="leading" secondItem="x5v-7f-bFM" secondAttribute="leadingMargin" constant="25" id="SaU-Fd-PTD"/>
+                            <constraint firstAttribute="centerX" secondItem="6qD-Fi-xNg" secondAttribute="centerX" id="ibG-L7-AKd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vcS-OD-1bG" secondAttribute="trailing" constant="-16" id="wSN-Ae-r4o"/>
                             <constraint firstAttribute="centerX" secondItem="vG8-6Z-C3q" secondAttribute="centerX" id="xpC-NY-nzO"/>
                             <constraint firstItem="dB5-kd-MLe" firstAttribute="top" secondItem="Ea2-X5-ED5" secondAttribute="bottom" constant="40" id="zQ5-Ps-7C0"/>
@@ -255,4 +271,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="vxd-tb-xNz"/>
+    </inferredMetricsTieBreakers>
 </document>
