@@ -165,7 +165,6 @@
                                 </state>
                                 <connections>
                                     <action selector="editConfirmOnButtonPressed:" destination="r2j-cX-smq" eventType="touchUpInside" id="2n1-fh-V6r"/>
-                                    <segue destination="uEv-To-Kc6" kind="unwind" unwindAction="unwindAndBook:" id="j0M-9a-szO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wikipedia City Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG8-6Z-C3q">
@@ -238,7 +237,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOT-oL-L8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="uEv-To-Kc6" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="pfj-oo-QED">
                     <connections>
                         <action selector="wikiOnLabelTapped:" destination="r2j-cX-smq" id="TKd-rj-yWk"/>

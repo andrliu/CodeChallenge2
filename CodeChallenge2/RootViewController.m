@@ -42,6 +42,12 @@
     self.cities = [@[losAngeles, sanFrancisco, seattle, chicago] mutableCopy];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.cityTableView reloadData];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.cities.count;
@@ -84,10 +90,6 @@
     detail.cityDetail = cityDetail;
 }
 
-- (IBAction)unwindAndBook:(UIStoryboardSegue *)segue
-{
-    [self.cityTableView reloadData];
-}
 
 
 @end
