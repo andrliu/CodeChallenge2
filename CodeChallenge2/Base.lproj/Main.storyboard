@@ -75,6 +75,56 @@
             </objects>
             <point key="canvasLocation" x="766" y="331"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="8hx-Kz-eUI">
+            <objects>
+                <viewController id="xZw-vi-LW7" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lkj-iW-qw5"/>
+                        <viewControllerLayoutGuide type="bottom" id="91n-U3-V4k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lTE-GA-Tcg" customClass="web">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-cA-9Jt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0k-qx-F1X">
+                                <rect key="frame" x="284" y="20" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="1kq-BV-VEG"/>
+                                    <constraint firstAttribute="height" constant="20" id="kkN-BK-qXk"/>
+                                </constraints>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissOnButtonPressed:" destination="xZw-vi-LW7" eventType="touchUpInside" id="drf-7h-BJd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="91n-U3-V4k" firstAttribute="top" secondItem="RYO-cA-9Jt" secondAttribute="bottom" id="7vY-fe-QNG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RYO-cA-9Jt" secondAttribute="trailing" constant="-16" id="Cg8-Kb-6kh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A0k-qx-F1X" secondAttribute="trailing" id="GeR-II-ilB"/>
+                            <constraint firstItem="RYO-cA-9Jt" firstAttribute="top" secondItem="lTE-GA-Tcg" secondAttribute="topMargin" id="HU3-Bg-kWy"/>
+                            <constraint firstItem="RYO-cA-9Jt" firstAttribute="leading" secondItem="lTE-GA-Tcg" secondAttribute="leadingMargin" constant="-16" id="HhY-T5-lXh"/>
+                            <constraint firstItem="A0k-qx-F1X" firstAttribute="top" secondItem="lkj-iW-qw5" secondAttribute="bottom" id="vhJ-xl-oTt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="wikiWebView" destination="RYO-cA-9Jt" id="843-ze-6gg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rV6-jH-RvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1254" y="-335"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="SIV-pi-SwB">
             <objects>
@@ -168,6 +218,7 @@
                         <outlet property="cityState" destination="bGM-Nb-mQt" id="k9H-9T-Nye"/>
                         <outlet property="detailImageView" destination="vcS-OD-1bG" id="fBB-YV-H1I"/>
                         <outlet property="wikiLabel" destination="vG8-6Z-C3q" id="cH3-MK-YaD"/>
+                        <segue destination="xZw-vi-LW7" kind="modal" identifier="webSegue" id="5eN-jM-2vj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOT-oL-L8q" userLabel="First Responder" sceneMemberID="firstResponder"/>

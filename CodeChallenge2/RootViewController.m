@@ -10,9 +10,10 @@
 #import "City.h"
 #import "DetailViewController.h"
 
-@interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate, CityDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *cityTableView;
 @property NSMutableArray *cities;
+@property City *city;
 @end
 
 @implementation RootViewController
@@ -20,6 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.city = [[City alloc]init];
+    self.city.delegate = self;
 
     City *losAngeles = [[City alloc]initWithName:@"Los Angeles"
                                        withState:@"California"
@@ -77,11 +80,14 @@
     NSInteger rowNumber = [self.cityTableView indexPathForSelectedRow].row;
     City *cityDetail = [self.cities objectAtIndex:rowNumber];
     detail.cityDetail = cityDetail;
+    [self wikiURL];
+    NSLog(@"%@", [self wikiURL]);
 }
 
 - (IBAction)unwindAndBook:(UIStoryboardSegue *)segue
 {
     [self.cityTableView reloadData];
 }
+
 
 @end

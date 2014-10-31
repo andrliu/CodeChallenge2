@@ -45,7 +45,7 @@
     self.touchPoint = [gesture locationInView:self.view];
     if (CGRectContainsPoint(self.wikiLabel.frame, self.touchPoint))
     {
-        NSLog(@"AAA");
+        [self performSegueWithIdentifier:@"webSegue" sender:self];
     }
 }
 
