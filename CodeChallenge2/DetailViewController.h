@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DetailViewController.h
 //  CodeChallenge2
 //
 //  Created by Andrew Liu on 10/30/14.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
-@interface ViewController : UIViewController
-
+@interface DetailViewController : UIViewController
+@property City *cityDetail;
 
 @end
-
